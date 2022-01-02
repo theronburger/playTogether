@@ -1,14 +1,12 @@
 import { GlobalKeyboardListener } from "node-global-key-listener";
-
-const v = new GlobalKeyboardListener();
-
 import * as ks from "node-key-sender";
 import * as mqtt from "mqtt";
-//const mqtt = require("mqtt");
+
+const v = new GlobalKeyboardListener();
 const client = mqtt.connect("mqtt://test.mosquitto.org");
 
-let me = "Theron";
-let yous = ["Anna"];
+const me = "Theron";
+const yous = ["Anna"];
 
 //Open the pipe and start listerning to me
 client.on("connect", function () {
