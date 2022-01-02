@@ -1,6 +1,8 @@
 import { GlobalKeyboardListener } from "node-global-key-listener";
+//var ks = require("node-key-sender");
 import * as ks from "node-key-sender";
 import * as mqtt from "mqtt";
+//console.log(ks.default.sendKey);
 
 const v = new GlobalKeyboardListener();
 const client = mqtt.connect("mqtt://test.mosquitto.org");
@@ -19,7 +21,7 @@ client.on("connect", function () {
 client.on("message", function (topic, message) {
   //basically only play / pause messages so...
   console.log("got play/pause message");
-  ks.sendKey("space");
+  ks.default.sendKey("space");
 });
 
 //Log the buttons and send them to the pipes
